@@ -42,6 +42,7 @@ public class Movement : MonoBehaviour
                     if(currentTile.remainingMov - 1 >= 0 && !visitedCoords.Contains(targetCoord) && tileAtTargetCoord.GetUnitOnTile() == null) {
 
                         toVisit.Enqueue(new MoveTile(targetCoord, currentTile.remainingMov - 1));
+                        tileAtTargetCoord.parent = map.GetTileFromCoord(currentTile.position);
 
                     }
 

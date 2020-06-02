@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TileCursor : MonoBehaviour
 {
+    public const float HEIGHT = 0.75f;
     Map map;
 
     void Awake() {
@@ -16,6 +17,19 @@ public class TileCursor : MonoBehaviour
         
     }
 
+    public void SetPositionFromRaycast(RaycastHit hit) {
+        if(hit.transform.GetComponent<Tile>() != null) {
+
+                transform.position = new Vector3(hit.transform.position.x, HEIGHT, hit.transform.position.z);
+
+            } else if (hit.transform.GetComponent<Unit>() != null) {
+
+                Tile targetTile = hit.transform.GetComponent<Unit>().currentTile;
+
+                transform.position = new Vector3(targetTile.transform.position.x, HEIGHT, targetTile.transform.position.z);
+            }
+    }
+    /*
     // Update is called once per frame
     void Update()
     {
@@ -25,15 +39,16 @@ public class TileCursor : MonoBehaviour
         if(Physics.Raycast(ray, out hit)) {
             if(hit.transform.GetComponent<Tile>() != null) {
 
-                transform.position = new Vector3(hit.transform.position.x, .75f, hit.transform.position.z);
+                transform.position = new Vector3(hit.transform.position.x, HEIGHT, hit.transform.position.z);
 
             } else if (hit.transform.GetComponent<Unit>() != null) {
 
                 Tile targetTile = hit.transform.GetComponent<Unit>().currentTile;
 
-                transform.position = new Vector3(targetTile.transform.position.x, .75f, targetTile.transform.position.z);
+                transform.position = new Vector3(targetTile.transform.position.x, HEIGHT, targetTile.transform.position.z);
             }
 
         }
     }
+    */
 }

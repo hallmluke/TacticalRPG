@@ -11,12 +11,13 @@ public class Unit : MonoBehaviour
     public Movement movement;
     public string name;
     public int maxHealth;
+    public int currentHealth;
     public int baseAttack;
     public int baseDefense;
     public int baseSpeed;
     public int moveRange;
+    public float moveSpeed = 3f;
 
-    int currentHealth;
     
     void Awake() {
         movement = gameObject.AddComponent<Movement>();
@@ -28,8 +29,8 @@ public class Unit : MonoBehaviour
         SetWorldPositionFromMapPosition();
         currentTile = map.GetTileFromCoord(position);
         currentTile.OccupyTile(this);
-        //movement = gameObject.AddComponent<Movement>();
-        //movement.CalculateMovementOptions(position, moveRange);
+
+        currentHealth = maxHealth;
     }
 
     // Update is called once per frame
@@ -38,12 +39,29 @@ public class Unit : MonoBehaviour
         
     }
 
-    public void Move(Coord coord) {
+    public void Move(Coord coord, List<Tile> path) {
         currentTile.LeaveTile();
         position = coord;
-        SetWorldPositionFromMapPosition();
+        StartCoroutine(FollowPath(path));
+        //SetWorldPositionFromMapPosition();
         currentTile = map.GetTileFromCoord(position);
         currentTile.OccupyTile(this);
+    }
+
+
+    IEnumerator FollowPath(List<Tile> path) {
+        for(int i = path.Count - 1; i >= 0; i--) {
+            Tile waypoint = path[i];
+            yield return StartCoroutine(MoveToTile(waypoint));
+        }
+    }
+
+    IEnumerator MoveToTile(Tile destination) {
+        while(transform.position != destination.transform.position + Vector3.up) {
+            
+            transform.position = Vector3.MoveTowards(transform.position, destination.transform.position + Vector3.up, moveSpeed * Time.deltaTime);
+            yield return null;
+        }
     }
 
     public void SetWorldPositionFromMapPosition() {

@@ -104,6 +104,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  name: 
   visualPrefab: {fileID: 0}
   movementCost: 1
+  coord:
+    x: 0
+    y: 0
+  defaultMaterial: {fileID: 2100000, guid: 17130addc3cde4b4d8424deccb8e4871, type: 2}
+  movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
+  isMovable: 0
+  inPath: 0
