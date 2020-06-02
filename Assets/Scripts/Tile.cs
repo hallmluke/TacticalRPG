@@ -10,12 +10,14 @@ public class Tile : MonoBehaviour
 
     public Material defaultMaterial;
     public Material movableMaterial;
+    public Material pathMaterial;
 
     Renderer tileRenderer;
     
     Unit unitOnTile;
-    Tile parent;
+    public Tile parent;
     public bool isMovable;
+    public bool inPath;
     bool isSelected;
 
     void Start() {
@@ -23,12 +25,18 @@ public class Tile : MonoBehaviour
         tileRenderer = transform.GetComponent<Renderer>();
         defaultMaterial = tileRenderer.sharedMaterial;
         movableMaterial = new Material(tileRenderer.sharedMaterial);
-
+        pathMaterial = new Material(tileRenderer.sharedMaterial);
         movableMaterial.color = Color.blue;
+        pathMaterial.color = Color.green;
+
+
     }
     void Update() {
 
-        if(isMovable) {
+        if(inPath) {
+            tileRenderer.material = pathMaterial;
+
+        } else if(isMovable) {
 
             tileRenderer.material = movableMaterial;
 

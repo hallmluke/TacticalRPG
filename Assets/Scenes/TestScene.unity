@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 170076734}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.49641263, b: 0.5748171, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -165,7 +165,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &28748180
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -277,7 +280,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &30102558
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -389,7 +395,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &40024437
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -501,7 +510,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &89559664
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -613,7 +625,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &109370069
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -725,7 +740,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &126833705
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -837,7 +855,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &127369146
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -949,7 +970,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &145409578
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1125,7 +1149,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: bdb7000851aa84348bc48e1b4d087628, type: 2}
+  - {fileID: 2100000, guid: 0d4b3d86feeeb4067bd779a3a0f67514, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1220,7 +1244,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &183978813
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1332,7 +1359,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &208424532
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1444,7 +1474,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &222784720
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1556,7 +1589,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &280310356
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1668,7 +1704,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &285844057
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1780,7 +1819,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &294741657
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1892,7 +1934,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &308371821
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2004,7 +2049,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &332335470
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2166,7 +2214,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &370649537
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2278,7 +2329,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &415758432
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2390,7 +2444,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &498625760
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2502,7 +2559,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &527781436
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2696,7 +2756,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &563574485
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2808,7 +2871,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &622016041
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2920,7 +2986,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &634323071
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3032,7 +3101,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &640907516
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3144,7 +3216,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &713834711
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3256,7 +3331,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &721754268
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3368,7 +3446,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &750711817
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3480,7 +3561,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &762182338
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3592,7 +3676,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &775898052
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3704,7 +3791,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &805641037
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3816,7 +3906,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &840179557
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3928,7 +4021,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &854757084
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4040,7 +4136,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &866354089
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4152,7 +4251,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &897032237
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4264,7 +4366,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &901548025
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4376,7 +4481,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &917976149
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4488,7 +4596,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &956103187
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4600,7 +4711,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &962450944
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4811,7 +4925,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &979686240
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4923,7 +5040,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &1030773498
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5035,7 +5155,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &1075758583
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5147,7 +5270,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &1110253757
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5259,7 +5385,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &1110659357
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5371,7 +5500,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &1125297269
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5585,7 +5717,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &1155138542
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5697,7 +5832,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &1166313198
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5809,7 +5947,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &1196099588
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5921,7 +6062,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &1227551488
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6033,7 +6177,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &1293015551
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6145,7 +6292,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &1387774299
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6257,7 +6407,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &1405563435
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6369,7 +6522,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &1506087057
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6481,7 +6637,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &1561400104
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6593,7 +6752,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &1578420513
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6705,7 +6867,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &1616217850
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6817,7 +6982,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &1639374500
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6929,7 +7097,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &1665557527
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7041,7 +7212,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &1671518432
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7153,7 +7327,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &1680468198
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7265,7 +7442,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &1688700009
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7377,7 +7557,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &1793371441
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7489,7 +7672,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &1799598810
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7601,7 +7787,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &1817213689
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7713,7 +7902,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &1827352140
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7825,7 +8017,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &1838746284
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -7937,7 +8132,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &1859982288
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8049,7 +8247,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &1866583369
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8204,7 +8405,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &1957391338
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8316,7 +8520,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &2074289968
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8428,7 +8635,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &2099710985
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8540,7 +8750,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &2108510800
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8652,7 +8865,10 @@ MonoBehaviour:
     y: 0
   defaultMaterial: {fileID: 0}
   movableMaterial: {fileID: 0}
+  pathMaterial: {fileID: 0}
+  parent: {fileID: 0}
   isMovable: 0
+  inPath: 0
 --- !u!65 &2126628226
 BoxCollider:
   m_ObjectHideFlags: 0
