@@ -10,12 +10,14 @@ public class Tile : MonoBehaviour
     public Material defaultMaterial;
     public Material movableMaterial;
     public Material pathMaterial;
+    public Material attackMaterial;
 
     Renderer tileRenderer;
     
     Unit unitOnTile;
     public Tile parent;
     public bool isMovable;
+    public bool isAttackable;
     public bool inPath;
 
     void Start() {
@@ -24,8 +26,11 @@ public class Tile : MonoBehaviour
         defaultMaterial = tileRenderer.sharedMaterial;
         movableMaterial = new Material(tileRenderer.sharedMaterial);
         pathMaterial = new Material(tileRenderer.sharedMaterial);
+        attackMaterial = new Material(tileRenderer.sharedMaterial);
+
         movableMaterial.color = Color.blue;
         pathMaterial.color = Color.green;
+        attackMaterial.color = Color.red;
 
 
     }

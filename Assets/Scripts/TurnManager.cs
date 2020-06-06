@@ -5,6 +5,8 @@ using UnityEngine;
 public class TurnManager : MonoBehaviour
 {
 
+    public ActionMenu actionMenu;
+
     public enum TurnState {
         Unselected, // No unit selected
         SelectedInactive, // Selected unit, but not one whose turn it is to move
@@ -101,11 +103,17 @@ public class TurnManager : MonoBehaviour
                 break;
             case TurnState.Moving:
                 if(!selectedUnit.moving) {
-                    currentState = TurnState.Unselected;
+                    currentState = TurnState.Moved;
                     selectedUnit = null;
                 }
                 break;
             case TurnState.Moved:
+                if(!actionMenu.gameObject.activeSelf) {
+                    actionMenu.gameObject.SetActive(true);
+                    
+                    actionMenu.attackButton.onClick.AddListener(OpenAttackTargets);
+                    
+                }
                 // TODO: Menu UI
                 break;
             case TurnState.Targeting:
@@ -119,6 +127,13 @@ public class TurnManager : MonoBehaviour
                 break;
         }
         
+    }
+
+    void OpenAttackTargets() {
+        print("Attack button clicked");
+        currentState = TurnState.Unselected;
+        actionMenu.gameObject.SetActive(false);
+        actionMenu.attackButton.onClick.RemoveListener(OpenAttackTargets);
     }
 
     void CalculatePath()
