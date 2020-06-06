@@ -17,6 +17,9 @@ public class Unit : MonoBehaviour
     public int baseSpeed;
     public int moveRange;
     public float moveSpeed = 3f;
+    public bool moving = false;
+
+
 
     
     void Awake() {
@@ -40,10 +43,19 @@ public class Unit : MonoBehaviour
     }
 
     public void Move(Coord coord, List<Tile> path) {
+
+        if(path == null || path.Count == 0) {
+            print("Invalid path passed to Move");
+        }
+
+        moving = true;
         currentTile.LeaveTile();
         position = coord;
-        StartCoroutine(FollowPath(path));
-        //SetWorldPositionFromMapPosition();
+
+        List<Tile> pathCopy = new List<Tile>(path);
+
+        StartCoroutine(FollowPath(pathCopy));
+
         currentTile = map.GetTileFromCoord(position);
         currentTile.OccupyTile(this);
     }
@@ -54,11 +66,11 @@ public class Unit : MonoBehaviour
             Tile waypoint = path[i];
             yield return StartCoroutine(MoveToTile(waypoint));
         }
+        moving = false;
     }
 
     IEnumerator MoveToTile(Tile destination) {
         while(transform.position != destination.transform.position + Vector3.up) {
-            
             transform.position = Vector3.MoveTowards(transform.position, destination.transform.position + Vector3.up, moveSpeed * Time.deltaTime);
             yield return null;
         }
@@ -69,7 +81,7 @@ public class Unit : MonoBehaviour
         transform.position = worldPosition;
     }
 
-    public HashSet<Coord> FindMovementOptions() {
+    public HashSet<Tile> FindMovementOptions() {
         return movement.CalculateMovementOptions(position, moveRange);
     }
 }

@@ -158,7 +158,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -273,7 +272,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -388,7 +386,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -503,7 +500,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -618,7 +614,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -733,7 +728,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -848,7 +842,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -963,7 +956,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -1237,7 +1229,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -1352,7 +1343,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -1467,7 +1457,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -1582,7 +1571,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -1697,7 +1685,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -1812,7 +1799,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -1927,7 +1913,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -2042,7 +2027,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -2207,7 +2191,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -2322,7 +2305,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -2437,7 +2419,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -2552,7 +2533,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -2749,7 +2729,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -2864,7 +2843,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -2979,7 +2957,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -3094,7 +3071,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -3209,7 +3185,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -3324,7 +3299,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -3439,7 +3413,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -3554,7 +3527,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -3669,7 +3641,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -3784,7 +3755,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -3899,7 +3869,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -4014,7 +3983,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -4129,7 +4097,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -4244,7 +4211,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -4359,7 +4325,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -4474,7 +4439,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -4589,7 +4553,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -4704,7 +4667,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -4918,7 +4880,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -5033,7 +4994,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -5148,7 +5108,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -5263,7 +5222,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -5378,7 +5336,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -5493,7 +5450,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -5710,7 +5666,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -5825,7 +5780,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -5940,7 +5894,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -6055,7 +6008,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -6170,7 +6122,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -6285,7 +6236,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -6400,7 +6350,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -6515,7 +6464,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -6630,7 +6578,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -6745,7 +6692,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -6860,7 +6806,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -6975,7 +6920,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -7090,7 +7034,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -7205,7 +7148,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -7320,7 +7262,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -7435,7 +7376,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -7550,7 +7490,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -7665,7 +7604,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -7780,7 +7718,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -7895,7 +7832,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -8010,7 +7946,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -8125,7 +8060,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -8240,7 +8174,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -8338,6 +8271,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34f7729065e9ff14ebe73e4eae55ba69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tileCursor: {fileID: 179780644}
 --- !u!4 &1910458927
 Transform:
   m_ObjectHideFlags: 0
@@ -8398,7 +8332,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -8513,7 +8446,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -8628,7 +8560,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -8743,7 +8674,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -8858,7 +8788,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c86c5d275c27ac748b9fbd1842fcfe05, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualPrefab: {fileID: 0}
   movementCost: 1
   coord:
     x: 0
@@ -9007,7 +8936,12 @@ PrefabInstance:
     - target: {fileID: 6760400095631681402, guid: 45235844fb143d9498b717e5691b1322,
         type: 3}
       propertyPath: moveRange
-      value: 2
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6760400095631681402, guid: 45235844fb143d9498b717e5691b1322,
+        type: 3}
+      propertyPath: moveSpeed
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45235844fb143d9498b717e5691b1322, type: 3}

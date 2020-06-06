@@ -5,12 +5,25 @@ using UnityEngine;
 public class TurnManager : MonoBehaviour
 {
 
+    public enum TurnState {
+        Unselected, // No unit selected
+        SelectedInactive, // Selected unit, but not one whose turn it is to move
+        Selected, // Selected unit
+        SelectingMove,
+        Moving, // Unit is currently in the process of moving
+        Moved, // Unit has finished moving
+        Targeting, // Unit is targeting another unit with an action
+        Acted // Unit has finished turn
+    }
+
+    TurnState currentState = TurnState.Unselected;
+
     public TileCursor tileCursor;
 
     Unit selectedUnit;
     Tile activeTile;
 
-    HashSet<Coord> movableTiles;
+    HashSet<Tile> movableTiles;
     List<Tile> movementPath;
     Map map;
     Ray ray;
@@ -33,56 +46,84 @@ public class TurnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (Physics.Raycast(ray, out hit))
-        {
-            if (tileCursor != null)
-            {
-                tileCursor.SetPositionFromRaycast(hit);
-            }
-
-            if (selectedUnit != null)
-            {
-                Tile targetTile = hit.transform.GetComponent<Tile>();
-
-                if (movableTiles == null)
+        switch(currentState) {
+            case TurnState.Unselected:
+                ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                if (Physics.Raycast(ray, out hit))
                 {
-                    movableTiles = selectedUnit.FindMovementOptions();
+                    if (tileCursor != null)
+                    {
+                        tileCursor.SetPositionFromRaycast(hit);
+                    }
+
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        if(SelectUnit()) {
+                            currentState = TurnState.SelectingMove;
+                        }
+                    }
                 }
-                if (targetTile != activeTile && targetTile != null)
+                break;
+            case TurnState.SelectedInactive:
+                // TODO: Menu UI
+                break;
+            case TurnState.Selected:
+                // TODO: Menu UI
+                break;
+            case TurnState.SelectingMove:
+                ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                if (Physics.Raycast(ray, out hit))
                 {
-                    activeTile = targetTile;
-                    CalculatePath();
+                    if (tileCursor != null)
+                    {
+                        tileCursor.SetPositionFromRaycast(hit);
+                    }
+
+                    Tile targetTile = hit.transform.GetComponent<Tile>();
+
+                    if (movableTiles == null)
+                    {
+                        movableTiles = selectedUnit.FindMovementOptions();
+                    }
+                    if (targetTile != activeTile && targetTile != null)
+                    {
+                        activeTile = targetTile;
+                        CalculatePath();
+                    }
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        if(movableTiles.Contains(activeTile)) {
+                            MoveUnit();
+                            currentState = TurnState.Moving;
+                        }
+                    }
                 }
-                if (Input.GetMouseButtonDown(0))
-                {
-
-                    MoveUnit();
+                break;
+            case TurnState.Moving:
+                if(!selectedUnit.moving) {
+                    currentState = TurnState.Unselected;
+                    selectedUnit = null;
                 }
-
-            }
-            else
-            {
-
-                if (Input.GetMouseButtonDown(0))
-                {
-                    SelectUnit();
-                }
-
-            }
+                break;
+            case TurnState.Moved:
+                // TODO: Menu UI
+                break;
+            case TurnState.Targeting:
+                // TODO: Actions
+                break;
+            case TurnState.Acted:
+                // TODO: Menu UI
+                break;
+            default:
+                print("An unexpected turn state in TurnManager occurred");
+                break;
         }
+        
     }
 
     void CalculatePath()
     {
-
-        while (movementPath.Count > 0)
-        {
-            Tile oldPathTile = movementPath[movementPath.Count - 1];
-            movementPath.Remove(oldPathTile);
-            print($"Old Path: X: {oldPathTile.coord.x}, Y: {oldPathTile.coord.y}");
-            oldPathTile.inPath = false;
-        }
+        ResetPath();
 
         Tile targetTile = hit.transform.GetComponent<Tile>();
         Tile currentTile = targetTile;
@@ -95,54 +136,53 @@ public class TurnManager : MonoBehaviour
         }
     }
 
-    void SelectUnit()
+    void ResetPath() {
+        while (movementPath.Count > 0)
+        {
+            Tile oldPathTile = movementPath[movementPath.Count - 1];
+            movementPath.Remove(oldPathTile);
+            oldPathTile.inPath = false;
+        }
+    }
+
+    bool SelectUnit()
     {
 
         if (hit.transform.GetComponent<Unit>() != null)
         {
-
             selectedUnit = hit.transform.GetComponent<Unit>();
-
+            return true;
         }
-        else if (hit.transform.GetComponent<Tile>() != null)
+        
+        if (hit.transform.GetComponent<Tile>() != null)
         {
-
-            print("Clicked on Tile");
-
             Tile selectedTile = hit.transform.GetComponent<Tile>();
 
             if (selectedTile.GetUnitOnTile() != null)
             {
-
                 selectedUnit = selectedTile.GetUnitOnTile();
-
+                return true;
             }
 
         }
 
-        print(selectedUnit);
+        return false;
     }
 
     void MoveUnit()
     {
-
-        if (movableTiles.Contains(activeTile.coord))
-        {
-
             selectedUnit.Move(activeTile.coord, movementPath);
-            selectedUnit = null;
-            foreach (Coord movable in movableTiles)
+
+            ResetPath();
+
+            foreach (Tile tile in movableTiles)
             {
-                Tile tile = map.tileMap[movable.x, movable.y].GetComponent<Tile>();
 
                 tile.isMovable = false;
-                tile.inPath = false;
                 tile.parent = null;
+
             }
-
             movableTiles = null;
-
-        }
 
     }
 
