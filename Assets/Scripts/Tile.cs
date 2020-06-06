@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-    public GameObject visualPrefab;
     public float movementCost = 1;
     public Coord coord;
 
@@ -18,7 +17,6 @@ public class Tile : MonoBehaviour
     public Tile parent;
     public bool isMovable;
     public bool inPath;
-    bool isSelected;
 
     void Start() {
 

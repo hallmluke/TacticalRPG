@@ -16,8 +16,7 @@ public class Movement : MonoBehaviour
             remainingMov = mov;
         }
     }
-
-    public HashSet<Coord> CalculateMovementOptions(Coord currentPosition, int moveRange) {
+    public HashSet<Tile> CalculateMovementOptions(Coord currentPosition, int moveRange) {
 
         HashSet<Coord> visitedCoords = new HashSet<Coord>();
         Queue<MoveTile> toVisit = new Queue<MoveTile>();
@@ -51,13 +50,16 @@ public class Movement : MonoBehaviour
 
         }
 
+        HashSet<Tile> movableTiles = new HashSet<Tile>();
+
         foreach(Coord movable in visitedCoords) {
             Tile tile = map.tileMap[movable.x, movable.y].GetComponent<Tile>();
+            movableTiles.Add(tile);
             
             tile.isMovable = true;
         }
 
-        return visitedCoords;
+        return movableTiles;
     }
 
     void Awake() {
