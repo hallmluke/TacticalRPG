@@ -16,6 +16,7 @@ public class Movement : MonoBehaviour
             remainingMov = mov;
         }
     }
+    
     public HashSet<Tile> CalculateMovementOptions(Coord currentPosition, int moveRange) {
 
         HashSet<Coord> visitedCoords = new HashSet<Coord>();
