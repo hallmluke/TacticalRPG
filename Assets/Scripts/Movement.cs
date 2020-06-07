@@ -9,19 +9,21 @@ public class Movement : MonoBehaviour
 
     struct MoveTile {
         public Coord position;
-        public int remainingMov;
+        public int distance;
 
         public MoveTile(Coord pos, int mov) {
             position = pos;
-            remainingMov = mov;
+            distance = mov;
         }
     }
-    
-    public HashSet<Tile> CalculateMovementOptions(Coord currentPosition, int moveRange) {
+
+    public HashSet<Tile> GetTilesInRange(Coord currentPosition, int minRange, int maxRange, bool ignoreObstacles = false) {
 
         HashSet<Coord> visitedCoords = new HashSet<Coord>();
         Queue<MoveTile> toVisit = new Queue<MoveTile>();
-        MoveTile startPosition = new MoveTile(currentPosition, moveRange);
+        HashSet<Tile> result = new HashSet<Tile>();
+
+        MoveTile startPosition = new MoveTile(currentPosition, 0);
 
         visitedCoords.Add(currentPosition);
         toVisit.Enqueue(startPosition);
@@ -31,19 +33,26 @@ public class Movement : MonoBehaviour
             MoveTile currentTile = toVisit.Dequeue();
             visitedCoords.Add(currentTile.position);
 
+            if(currentTile.distance <= maxRange && currentTile.distance >= minRange) {
+                Tile tileInRange = map.GetTileFromCoord(currentTile.position);
+
+                result.Add(tileInRange);
+            }
+
             for(int i=0; i<directions.Length; i++) {
 
                 Coord targetCoord = new Coord(currentTile.position.x + directions[i].x, currentTile.position.y + directions[i].y);
 
                 if(map.validCoord(targetCoord)) {
 
-                    Tile tileAtTargetCoord = map.tileMap[targetCoord.x, targetCoord.y].GetComponent<Tile>();
+                    Tile tileAtTargetCoord = map.GetTileFromCoord(targetCoord);
 
-                    if(currentTile.remainingMov - 1 >= 0 && !visitedCoords.Contains(targetCoord) && tileAtTargetCoord.GetUnitOnTile() == null) {
+                    if(maxRange >= currentTile.distance + tileAtTargetCoord.movementCost && !visitedCoords.Contains(targetCoord)) {
 
-                        toVisit.Enqueue(new MoveTile(targetCoord, currentTile.remainingMov - 1));
-                        tileAtTargetCoord.parent = map.GetTileFromCoord(currentTile.position);
-
+                        if(ignoreObstacles || (!ignoreObstacles && tileAtTargetCoord.GetUnitOnTile() == null)) {
+                            toVisit.Enqueue(new MoveTile(targetCoord, currentTile.distance + tileAtTargetCoord.movementCost));
+                            tileAtTargetCoord.parent = map.GetTileFromCoord(currentTile.position);
+                        }
                     }
 
                 }
@@ -51,16 +60,36 @@ public class Movement : MonoBehaviour
 
         }
 
-        HashSet<Tile> movableTiles = new HashSet<Tile>();
 
-        foreach(Coord movable in visitedCoords) {
-            Tile tile = map.tileMap[movable.x, movable.y].GetComponent<Tile>();
-            movableTiles.Add(tile);
-            
-            tile.isMovable = true;
+        return result;
+    }
+
+    public HashSet<Tile> GetMovementTiles(Coord position, int maxRange) {
+        HashSet<Tile> tilesInRange = GetTilesInRange(position, 1, maxRange);
+        HashSet<Tile> result = new HashSet<Tile>();
+
+        foreach(Tile tile in tilesInRange) {
+            if(tile.GetUnitOnTile() == null) {
+                result.Add(tile);
+                tile.isMovable = true;
+            } 
         }
 
-        return movableTiles;
+        return result;
+    }
+
+    public HashSet<Tile> GetAttackTargets(Coord position, int minRange, int maxRange) {
+        HashSet<Tile> tilesInRange = GetTilesInRange(position, minRange, maxRange, true);
+        HashSet<Tile> result = new HashSet<Tile>();
+
+        foreach(Tile tile in tilesInRange) {
+            if(tile.GetUnitOnTile() != null) {
+                result.Add(tile);
+                tile.isAttackable = true;
+            } 
+        }
+
+        return result;
     }
 
     void Awake() {
