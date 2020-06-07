@@ -25,7 +25,7 @@ public class Movement : MonoBehaviour
 
         MoveTile startPosition = new MoveTile(currentPosition, 0);
 
-        if(0 <= maxRange && 0 >= minRange) {
+        if(0 <= maxRange && 0 == minRange) {
             Tile tileInRange = map.GetTileFromCoord(currentPosition);
 
             result.Add(tileInRange);
@@ -75,7 +75,7 @@ public class Movement : MonoBehaviour
         HashSet<Tile> result = new HashSet<Tile>();
 
         foreach(Tile tile in tilesInRange) {
-            if(tile.GetUnitOnTile() == null) {
+            if(tile.GetUnitOnTile() == null || tile.GetUnitOnTile() == transform.GetComponent<Unit>()) {
                 result.Add(tile);
                 tile.isMovable = true;
             } 

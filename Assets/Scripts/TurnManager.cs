@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TurnManager : MonoBehaviour
 {
@@ -29,6 +30,7 @@ public class TurnManager : MonoBehaviour
     
     Tile activeTile;
 
+    Tile originalUnitPosition;
     HashSet<Tile> movableTiles;
     HashSet<Tile> targetableTiles;
 
@@ -36,6 +38,8 @@ public class TurnManager : MonoBehaviour
     Map map;
     Ray ray;
     RaycastHit hit;
+
+    public bool active = true;
 
 
 
@@ -54,6 +58,7 @@ public class TurnManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(active) {
         switch(currentState) {
             case TurnState.Unselected:
                 ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -69,6 +74,7 @@ public class TurnManager : MonoBehaviour
                     if (Input.GetMouseButtonDown(0))
                     {
                         if(SelectUnit()) {
+                            originalUnitPosition = selectedUnit.currentTile;
                             currentState = TurnState.SelectingMove;
                         }
                     }
@@ -125,7 +131,9 @@ public class TurnManager : MonoBehaviour
                 if(!actionMenu.gameObject.activeSelf) {
                     actionMenu.gameObject.SetActive(true);
                     
-                    actionMenu.attackButton.onClick.AddListener(OpenAttackTargets);
+                    actionMenu.RegisterListener(actionMenu.attackButton, OpenAttackTargets);
+                    actionMenu.RegisterListener(actionMenu.waitButton, Wait);
+                    actionMenu.RegisterListener(actionMenu.cancelButton, CancelMove);
                     
                 }
                 // TODO: Menu UI
@@ -167,6 +175,7 @@ public class TurnManager : MonoBehaviour
                 break;
             case TurnState.Acted:
                 selectedUnit.EndTurn();
+                gameFlowManager.CheckForEndGame();
                 gameFlowManager.CheckForAllUnitsMoved();
                 selectedUnit = null;
                 currentState = TurnState.Unselected;
@@ -175,6 +184,7 @@ public class TurnManager : MonoBehaviour
             default:
                 print("An unexpected turn state in TurnManager occurred");
                 break;
+        }
         }
         
     }
@@ -204,10 +214,25 @@ public class TurnManager : MonoBehaviour
 
             currentState = TurnState.Acted;
         }
+        actionMenu.CloseMenu();
         
-        actionMenu.gameObject.SetActive(false);
-        actionMenu.attackButton.onClick.RemoveListener(OpenAttackTargets);
-        
+    }
+
+    void Wait() {
+        currentState = TurnState.Acted;
+        actionMenu.CloseMenu();
+    }
+
+    void CancelMove() {
+
+        selectedUnit.CancelMove(originalUnitPosition);
+
+        originalUnitPosition = null;
+
+        currentState = TurnState.Unselected;
+
+        actionMenu.CloseMenu();
+
     }
 
     void CalculatePath()
@@ -241,7 +266,7 @@ public class TurnManager : MonoBehaviour
         {
             selectedUnit = hit.transform.GetComponent<Unit>();
 
-            if(gameFlowManager.currentTeam == selectedUnit.team) {
+            if(gameFlowManager.currentTeam == selectedUnit.team && !selectedUnit.acted) {
                 return true;
             } else {
                 selectedUnit = null;
@@ -257,7 +282,7 @@ public class TurnManager : MonoBehaviour
 
             if (unitOnTile != null)
             {
-                if(gameFlowManager.currentTeam == unitOnTile.team) {
+                if(gameFlowManager.currentTeam == unitOnTile.team && !unitOnTile.acted) {
                     selectedUnit = unitOnTile;
                     return true;
                 } else {
@@ -290,7 +315,7 @@ public class TurnManager : MonoBehaviour
 
     void AttackUnit() {
 
-        selectedUnit.Attack(activeTile);
+        selectedUnit.ExecuteAction(activeTile, new Attack());
 
         foreach(Tile tile in targetableTiles) {
             tile.isAttackable = false;
