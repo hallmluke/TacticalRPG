@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-    public float movementCost = 1;
+    public int movementCost = 1;
     public Coord coord;
 
     public Material defaultMaterial;
@@ -43,6 +43,10 @@ public class Tile : MonoBehaviour
 
             tileRenderer.material = movableMaterial;
 
+        } else if(isAttackable) {
+            
+            tileRenderer.material = attackMaterial;
+            
         } else {
 
             tileRenderer.material = defaultMaterial;

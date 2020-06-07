@@ -9,7 +9,7 @@ public class Unit : MonoBehaviour
     public Coord position;
     public Tile currentTile;
     public Movement movement;
-    public string name;
+    public string displayName;
     public int maxHealth;
     public int currentHealth;
     public int baseAttack;
@@ -60,6 +60,12 @@ public class Unit : MonoBehaviour
         currentTile.OccupyTile(this);
     }
 
+    public void Attack(Tile target) {
+        Unit targetUnit = target.GetUnitOnTile();
+
+        targetUnit.currentHealth -= Mathf.Max(0, baseAttack - targetUnit.baseDefense);
+    }
+
 
     IEnumerator FollowPath(List<Tile> path) {
         for(int i = path.Count - 1; i >= 0; i--) {
@@ -82,6 +88,10 @@ public class Unit : MonoBehaviour
     }
 
     public HashSet<Tile> FindMovementOptions() {
-        return movement.CalculateMovementOptions(position, moveRange);
+        return movement.GetMovementTiles(position, moveRange);
+    }
+
+    public HashSet<Tile> FindAttackTargets() {
+        return movement.GetAttackTargets(position, 1, 1);
     }
 }

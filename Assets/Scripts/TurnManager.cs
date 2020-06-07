@@ -6,6 +6,7 @@ public class TurnManager : MonoBehaviour
 {
 
     public ActionMenu actionMenu;
+    public UnitDisplay unitDisplay;
 
     public enum TurnState {
         Unselected, // No unit selected
@@ -23,9 +24,12 @@ public class TurnManager : MonoBehaviour
     public TileCursor tileCursor;
 
     Unit selectedUnit;
+    
     Tile activeTile;
 
     HashSet<Tile> movableTiles;
+    HashSet<Tile> targetableTiles;
+
     List<Tile> movementPath;
     Map map;
     Ray ray;
@@ -58,6 +62,8 @@ public class TurnManager : MonoBehaviour
                         tileCursor.SetPositionFromRaycast(hit);
                     }
 
+                    UpdateUnitDisplay();
+
                     if (Input.GetMouseButtonDown(0))
                     {
                         if(SelectUnit()) {
@@ -76,11 +82,6 @@ public class TurnManager : MonoBehaviour
                 ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 if (Physics.Raycast(ray, out hit))
                 {
-                    if (tileCursor != null)
-                    {
-                        tileCursor.SetPositionFromRaycast(hit);
-                    }
-
                     Tile targetTile = hit.transform.GetComponent<Tile>();
 
                     if (movableTiles == null)
@@ -89,6 +90,10 @@ public class TurnManager : MonoBehaviour
                     }
                     if (targetTile != activeTile && targetTile != null)
                     {
+                        if (tileCursor != null)
+                        {
+                            tileCursor.SetPositionFromRaycast(hit);
+                        }
                         activeTile = targetTile;
                         CalculatePath();
                     }
@@ -104,7 +109,6 @@ public class TurnManager : MonoBehaviour
             case TurnState.Moving:
                 if(!selectedUnit.moving) {
                     currentState = TurnState.Moved;
-                    selectedUnit = null;
                 }
                 break;
             case TurnState.Moved:
@@ -117,6 +121,30 @@ public class TurnManager : MonoBehaviour
                 // TODO: Menu UI
                 break;
             case TurnState.Targeting:
+                ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                if (Physics.Raycast(ray, out hit))
+                {
+                    UpdateUnitDisplay();
+
+                    Tile targetTile = hit.transform.GetComponent<Tile>();
+
+                    if (targetTile != activeTile && targetTile != null)
+                    {
+                        if (tileCursor != null)
+                        {
+                            tileCursor.SetPositionFromRaycast(hit);
+                        }
+                        activeTile = targetTile;
+                    }
+
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        if(targetableTiles.Contains(targetTile)) {
+                            AttackUnit();
+                            currentState = TurnState.Unselected;
+                        }
+                    }
+                }
                 // TODO: Actions
                 break;
             case TurnState.Acted:
@@ -129,11 +157,37 @@ public class TurnManager : MonoBehaviour
         
     }
 
+    void UpdateUnitDisplay() {
+        if (hit.transform.GetComponent<Tile>() != null)
+        {
+            unitDisplay.displayedUnit = hit.transform.GetComponent<Tile>().GetUnitOnTile();
+        }
+        else if (hit.transform.GetComponent<Unit>() != null)
+        {
+            unitDisplay.displayedUnit = hit.transform.GetComponent<Unit>();
+
+        } else {
+
+            unitDisplay.displayedUnit = null;
+        }
+
+        unitDisplay.gameObject.SetActive(unitDisplay.displayedUnit != null);
+    }
     void OpenAttackTargets() {
-        print("Attack button clicked");
-        currentState = TurnState.Unselected;
+        targetableTiles = selectedUnit.FindAttackTargets();
+
+        if(targetableTiles.Count > 0) {
+            currentState = TurnState.Targeting;
+        } else {
+            print("No targets");
+
+            currentState = TurnState.Unselected;
+            selectedUnit = null;
+        }
+        
         actionMenu.gameObject.SetActive(false);
         actionMenu.attackButton.onClick.RemoveListener(OpenAttackTargets);
+        
     }
 
     void CalculatePath()
@@ -199,6 +253,18 @@ public class TurnManager : MonoBehaviour
             }
             movableTiles = null;
 
+    }
+
+    void AttackUnit() {
+
+        selectedUnit.Attack(activeTile);
+
+        foreach(Tile tile in targetableTiles) {
+            tile.isAttackable = false;
+            tile.parent = null;
+        }
+
+        targetableTiles = null;
     }
 
 }
