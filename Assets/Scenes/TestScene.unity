@@ -4494,6 +4494,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teamName: Enemy
   teamNumber: 1
+  commander: {fileID: 0}
   unitsInTeam: []
 --- !u!1 &827328466
 GameObject:
@@ -5620,7 +5621,7 @@ PrefabInstance:
     - target: {fileID: 6760400095631681402, guid: 45235844fb143d9498b717e5691b1322,
         type: 3}
       propertyPath: baseAttack
-      value: 4
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 6760400095631681402, guid: 45235844fb143d9498b717e5691b1322,
         type: 3}
@@ -5684,6 +5685,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   teamName: Player
   teamNumber: 0
+  commander: {fileID: 0}
   unitsInTeam: []
 --- !u!1 &979686237
 GameObject:
@@ -7790,7 +7792,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1405634444
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9907,6 +9909,7 @@ MonoBehaviour:
   unitDisplay: {fileID: 1405634445}
   gameFlowManager: {fileID: 959496321}
   tileCursor: {fileID: 179780644}
+  active: 1
 --- !u!4 &1910458927
 Transform:
   m_ObjectHideFlags: 0

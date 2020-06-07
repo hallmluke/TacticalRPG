@@ -50,6 +50,15 @@ public class GameFlowManager : MonoBehaviour
         }
     }
 
+    public void CheckForEndGame() {
+        foreach(Team team in teams) {
+            if(!team.IsTeamAlive()) {
+                print(team.teamName + " defeated.");
+                turnManager.active = false;
+            }
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {

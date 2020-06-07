@@ -19,7 +19,7 @@ public class Unit : MonoBehaviour
     public int moveRange;
     public float moveSpeed = 3f;
     public bool moving = false;
-    bool acted = false;
+    public bool acted = false;
 
     Renderer unitRenderer;
     public Material startingMaterial;
@@ -73,10 +73,36 @@ public class Unit : MonoBehaviour
         currentTile.OccupyTile(this);
     }
 
-    public void Attack(Tile target) {
+    public void CancelMove(Tile originalTile) {
+        
+        currentTile.LeaveTile();
+
+        position = originalTile.coord;
+
+        currentTile = originalTile;
+
+        currentTile.OccupyTile(this);
+
+        SetWorldPositionFromMapPosition();
+
+    }
+
+    public void ExecuteAction(Tile target, Action action) {
         Unit targetUnit = target.GetUnitOnTile();
 
-        targetUnit.currentHealth -= Mathf.Max(0, baseAttack - targetUnit.baseDefense);
+        action.Execute(this, targetUnit);
+    }
+
+    public void ReceiveDamage(int damage) {
+
+        currentHealth = Mathf.Max(0, currentHealth - Mathf.Max(0, damage));
+
+        if(currentHealth == 0) {
+            currentTile.LeaveTile();
+            team.RemoveUnitFromTeam(this);
+
+            Destroy(gameObject);
+        }
     }
 
 
