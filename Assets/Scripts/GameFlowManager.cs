@@ -38,6 +38,8 @@ public class GameFlowManager : MonoBehaviour
 
     void NextTurn() {
         SwitchCurrentTeam();
+
+        currentTeam.ResetUnitMoveState();
         UpdateTeamDisplay();
         UpdateUnitsOnNewTurn();
     }
