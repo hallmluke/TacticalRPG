@@ -8,6 +8,8 @@ public class TurnManager : MonoBehaviour
     public ActionMenu actionMenu;
     public UnitDisplay unitDisplay;
 
+    public GameFlowManager gameFlowManager;
+
     public enum TurnState {
         Unselected, // No unit selected
         SelectedInactive, // Selected unit, but not one whose turn it is to move
@@ -84,16 +86,24 @@ public class TurnManager : MonoBehaviour
                 {
                     Tile targetTile = hit.transform.GetComponent<Tile>();
 
+                    if(targetTile == null && hit.transform.GetComponent<Unit>() != null) {
+
+                        targetTile = hit.transform.GetComponent<Unit>().currentTile;
+                        
+                    }
+
+                    if (tileCursor != null)
+                    {
+                        tileCursor.SetPositionFromRaycast(hit);
+                    }
+
                     if (movableTiles == null)
                     {
                         movableTiles = selectedUnit.FindMovementOptions();
                     }
                     if (targetTile != activeTile && targetTile != null)
                     {
-                        if (tileCursor != null)
-                        {
-                            tileCursor.SetPositionFromRaycast(hit);
-                        }
+                        
                         activeTile = targetTile;
                         CalculatePath();
                     }
@@ -126,14 +136,22 @@ public class TurnManager : MonoBehaviour
                 {
                     UpdateUnitDisplay();
 
+                    if (tileCursor != null)
+                    {
+                        tileCursor.SetPositionFromRaycast(hit);
+                    }
+
                     Tile targetTile = hit.transform.GetComponent<Tile>();
+
+                    if(targetTile == null && hit.transform.GetComponent<Unit>() != null) {
+
+                        targetTile = hit.transform.GetComponent<Unit>().currentTile;
+
+                    }
 
                     if (targetTile != activeTile && targetTile != null)
                     {
-                        if (tileCursor != null)
-                        {
-                            tileCursor.SetPositionFromRaycast(hit);
-                        }
+                        
                         activeTile = targetTile;
                     }
 
@@ -141,13 +159,17 @@ public class TurnManager : MonoBehaviour
                     {
                         if(targetableTiles.Contains(targetTile)) {
                             AttackUnit();
-                            currentState = TurnState.Unselected;
+                            currentState = TurnState.Acted;
                         }
                     }
                 }
                 // TODO: Actions
                 break;
             case TurnState.Acted:
+                selectedUnit.EndTurn();
+                gameFlowManager.CheckForAllUnitsMoved();
+                selectedUnit = null;
+                currentState = TurnState.Unselected;
                 // TODO: Menu UI
                 break;
             default:
@@ -160,18 +182,17 @@ public class TurnManager : MonoBehaviour
     void UpdateUnitDisplay() {
         if (hit.transform.GetComponent<Tile>() != null)
         {
-            unitDisplay.displayedUnit = hit.transform.GetComponent<Tile>().GetUnitOnTile();
+            unitDisplay.UpdateDisplay(hit.transform.GetComponent<Tile>().GetUnitOnTile());
         }
         else if (hit.transform.GetComponent<Unit>() != null)
         {
-            unitDisplay.displayedUnit = hit.transform.GetComponent<Unit>();
+            unitDisplay.UpdateDisplay(hit.transform.GetComponent<Unit>());
 
         } else {
 
-            unitDisplay.displayedUnit = null;
+            unitDisplay.UpdateDisplay(null);
         }
 
-        unitDisplay.gameObject.SetActive(unitDisplay.displayedUnit != null);
     }
     void OpenAttackTargets() {
         targetableTiles = selectedUnit.FindAttackTargets();
@@ -181,8 +202,7 @@ public class TurnManager : MonoBehaviour
         } else {
             print("No targets");
 
-            currentState = TurnState.Unselected;
-            selectedUnit = null;
+            currentState = TurnState.Acted;
         }
         
         actionMenu.gameObject.SetActive(false);
@@ -220,17 +240,30 @@ public class TurnManager : MonoBehaviour
         if (hit.transform.GetComponent<Unit>() != null)
         {
             selectedUnit = hit.transform.GetComponent<Unit>();
-            return true;
+
+            if(gameFlowManager.currentTeam == selectedUnit.team) {
+                return true;
+            } else {
+                selectedUnit = null;
+                return false;
+            }
+            
         }
-        
-        if (hit.transform.GetComponent<Tile>() != null)
+        else if (hit.transform.GetComponent<Tile>() != null)
         {
             Tile selectedTile = hit.transform.GetComponent<Tile>();
 
-            if (selectedTile.GetUnitOnTile() != null)
+            Unit unitOnTile = selectedTile.GetUnitOnTile();
+
+            if (unitOnTile != null)
             {
-                selectedUnit = selectedTile.GetUnitOnTile();
-                return true;
+                if(gameFlowManager.currentTeam == unitOnTile.team) {
+                    selectedUnit = unitOnTile;
+                    return true;
+                } else {
+                    selectedUnit = null;
+                    return false;
+                }
             }
 
         }

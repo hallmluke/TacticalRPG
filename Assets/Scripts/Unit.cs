@@ -10,6 +10,7 @@ public class Unit : MonoBehaviour
     public Tile currentTile;
     public Movement movement;
     public string displayName;
+    public Team team;
     public int maxHealth;
     public int currentHealth;
     public int baseAttack;
@@ -18,13 +19,25 @@ public class Unit : MonoBehaviour
     public int moveRange;
     public float moveSpeed = 3f;
     public bool moving = false;
+    bool acted = false;
+
+    Renderer unitRenderer;
+    public Material startingMaterial;
+
+    Material waitMaterial;
 
 
 
     
     void Awake() {
         movement = gameObject.AddComponent<Movement>();
-        
+        team.unitsInTeam.Add(this);
+
+        unitRenderer = transform.GetComponent<Renderer>();
+        startingMaterial = unitRenderer.material;
+        waitMaterial = new Material(unitRenderer.material);
+        float percentDarker = .70f;
+        waitMaterial.color = new Color(waitMaterial.color.r * percentDarker, waitMaterial.color.g * percentDarker, waitMaterial.color.b * percentDarker);
     }
     // Start is called before the first frame update
     void Start()
@@ -94,4 +107,15 @@ public class Unit : MonoBehaviour
     public HashSet<Tile> FindAttackTargets() {
         return movement.GetAttackTargets(position, 1, 1);
     }
+
+    public void NewTurn() {
+        acted = false;
+        unitRenderer.material = startingMaterial;
+    }
+    public void EndTurn() {
+        acted = true;
+        unitRenderer.material = waitMaterial;
+        team.RemoveUnitFromLeftToMove(this);
+    }
+
 }

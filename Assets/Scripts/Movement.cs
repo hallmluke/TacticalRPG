@@ -25,6 +25,12 @@ public class Movement : MonoBehaviour
 
         MoveTile startPosition = new MoveTile(currentPosition, 0);
 
+        if(0 <= maxRange && 0 >= minRange) {
+            Tile tileInRange = map.GetTileFromCoord(currentPosition);
+
+            result.Add(tileInRange);
+        }
+
         visitedCoords.Add(currentPosition);
         toVisit.Enqueue(startPosition);
 
@@ -65,7 +71,7 @@ public class Movement : MonoBehaviour
     }
 
     public HashSet<Tile> GetMovementTiles(Coord position, int maxRange) {
-        HashSet<Tile> tilesInRange = GetTilesInRange(position, 1, maxRange);
+        HashSet<Tile> tilesInRange = GetTilesInRange(position, 0, maxRange);
         HashSet<Tile> result = new HashSet<Tile>();
 
         foreach(Tile tile in tilesInRange) {
