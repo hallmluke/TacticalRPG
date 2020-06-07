@@ -19,6 +19,11 @@ public class UnitDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+    }
+
+    public void UpdateDisplay(Unit unitToDisplay) {
+        displayedUnit = unitToDisplay;
         if(displayedUnit != null && enabled) {
             gameObject.SetActive(true);
             unitName.text = displayedUnit.displayName;
