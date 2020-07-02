@@ -38,9 +38,4 @@ public class Team : MonoBehaviour
         ResetUnitMoveState();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

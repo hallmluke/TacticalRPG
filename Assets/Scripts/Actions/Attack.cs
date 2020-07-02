@@ -5,6 +5,6 @@ using UnityEngine;
 public class Attack : Action
 {
     public override void Execute(Unit actor, Unit target) {
-        target.ReceiveDamage(actor.baseAttack - target.baseDefense);
+        target.ReceiveDamage(actor.totalAttack - target.totalDefense);
     }
 }

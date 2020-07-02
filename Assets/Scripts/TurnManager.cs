@@ -245,7 +245,8 @@ public class TurnManager : MonoBehaviour
         while (currentTile != null)
         {
             movementPath.Add(currentTile);
-            currentTile.inPath = true;
+            //currentTile.inPath = true;
+            currentTile.SetMaterialToPath();
             currentTile = currentTile.parent;
         }
     }
@@ -255,7 +256,12 @@ public class TurnManager : MonoBehaviour
         {
             Tile oldPathTile = movementPath[movementPath.Count - 1];
             movementPath.Remove(oldPathTile);
-            oldPathTile.inPath = false;
+            //oldPathTile.inPath = false;
+            if(movableTiles.Contains(oldPathTile)) {
+                oldPathTile.SetMaterialToMovable();
+            } else {
+                oldPathTile.ResetMaterial();
+            } 
         }
     }
 
@@ -305,7 +311,8 @@ public class TurnManager : MonoBehaviour
             foreach (Tile tile in movableTiles)
             {
 
-                tile.isMovable = false;
+                //tile.isMovable = false;
+                tile.ResetMaterial();
                 tile.parent = null;
 
             }
@@ -318,7 +325,8 @@ public class TurnManager : MonoBehaviour
         selectedUnit.ExecuteAction(activeTile, new Attack());
 
         foreach(Tile tile in targetableTiles) {
-            tile.isAttackable = false;
+            //tile.isAttackable = false;
+            tile.ResetMaterial();
             tile.parent = null;
         }
 

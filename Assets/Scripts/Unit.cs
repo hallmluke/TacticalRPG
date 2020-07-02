@@ -11,12 +11,28 @@ public class Unit : MonoBehaviour
     public Movement movement;
     public string displayName;
     public Team team;
-    public int maxHealth;
-    public int currentHealth;
+
+    public Job job;
+
+    // Base Stats
+    public int baseHealth;
     public int baseAttack;
     public int baseDefense;
+    public int baseSpAttack;
+    public int baseSpDefense;
     public int baseSpeed;
     public int moveRange;
+
+
+    // Calculated Stats
+    public int maxHealth;
+    public int currentHealth;
+    public int totalAttack;
+    public int totalDefense;
+    public int totalSpAttack;
+    public int totalSpDefense;
+    public int totalSpeed;
+
     public float moveSpeed = 3f;
     public bool moving = false;
     public bool acted = false;
@@ -46,14 +62,11 @@ public class Unit : MonoBehaviour
         currentTile = map.GetTileFromCoord(position);
         currentTile.OccupyTile(this);
 
+        RecalculateStats();
+
         currentHealth = maxHealth;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void Move(Coord coord, List<Tile> path) {
 
@@ -142,6 +155,17 @@ public class Unit : MonoBehaviour
         acted = true;
         unitRenderer.material = waitMaterial;
         team.RemoveUnitFromLeftToMove(this);
+    }
+
+    public void RecalculateStats() {
+
+        maxHealth = Mathf.RoundToInt(baseHealth * job.healthModifier);
+        totalAttack = Mathf.RoundToInt(baseAttack * job.attackModifier);
+        totalDefense = Mathf.RoundToInt(baseDefense * job.defenseModifier);
+        totalSpAttack = Mathf.RoundToInt(baseSpAttack * job.spAttackModifier);
+        totalSpDefense = Mathf.RoundToInt(baseSpDefense * job.spDefenseModifier);
+        totalSpeed = Mathf.RoundToInt(baseSpeed * job.speedModifier);
+
     }
 
 }

@@ -77,7 +77,8 @@ public class Movement : MonoBehaviour
         foreach(Tile tile in tilesInRange) {
             if(tile.GetUnitOnTile() == null || tile.GetUnitOnTile() == transform.GetComponent<Unit>()) {
                 result.Add(tile);
-                tile.isMovable = true;
+                //tile.isMovable = true;
+                tile.SetMaterialToMovable();
             } 
         }
 
@@ -91,7 +92,8 @@ public class Movement : MonoBehaviour
         foreach(Tile tile in tilesInRange) {
             if(tile.GetUnitOnTile() != null) {
                 result.Add(tile);
-                tile.isAttackable = true;
+                //tile.isAttackable = true;
+                tile.SetMaterialToAttackable();
             } 
         }
 
