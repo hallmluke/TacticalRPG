@@ -8,6 +8,7 @@ public class UnitDisplay : MonoBehaviour
     public Unit displayedUnit;
     public TMP_Text unitName;
     public TMP_Text health;
+    public TMP_Text job;
 
     bool enabled = true;
     // Start is called before the first frame update
@@ -16,11 +17,6 @@ public class UnitDisplay : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void UpdateDisplay(Unit unitToDisplay) {
         displayedUnit = unitToDisplay;
@@ -28,6 +24,7 @@ public class UnitDisplay : MonoBehaviour
             gameObject.SetActive(true);
             unitName.text = displayedUnit.displayName;
             health.text = displayedUnit.currentHealth + "/" + displayedUnit.maxHealth;
+            job.text = displayedUnit.job.jobName;
         } else {
             gameObject.SetActive(false);
         }

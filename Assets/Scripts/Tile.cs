@@ -34,24 +34,21 @@ public class Tile : MonoBehaviour
 
 
     }
-    void Update() {
 
-        if(inPath) {
-            tileRenderer.material = pathMaterial;
+    public void SetMaterialToPath() {
+        tileRenderer.material = pathMaterial;
+    }
 
-        } else if(isMovable) {
+    public void SetMaterialToMovable() {
+        tileRenderer.material = movableMaterial;
+    }
 
-            tileRenderer.material = movableMaterial;
+    public void SetMaterialToAttackable() {
+        tileRenderer.material = attackMaterial;
+    }
 
-        } else if(isAttackable) {
-            
-            tileRenderer.material = attackMaterial;
-            
-        } else {
-
-            tileRenderer.material = defaultMaterial;
-
-        }
+    public void ResetMaterial() {
+        tileRenderer.material = defaultMaterial;
     }
     public void OccupyTile(Unit unit) {
         unitOnTile = unit;
