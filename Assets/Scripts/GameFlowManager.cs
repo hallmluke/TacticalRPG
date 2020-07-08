@@ -13,6 +13,8 @@ public class GameFlowManager : MonoBehaviour
     public TMP_Text teamDisplay;
     public int currentTeamNumber = 0;
 
+    public Vector3 cam_position;
+
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +22,7 @@ public class GameFlowManager : MonoBehaviour
         currentTeam = teams[currentTeamNumber];
         UpdateTeamDisplay();
         UpdateUnitsOnNewTurn();
+        cam_position = Camera.main.transform.position;
     }
 
     void UpdateUnitsOnNewTurn() {
@@ -38,6 +41,7 @@ public class GameFlowManager : MonoBehaviour
 
     void NextTurn() {
         SwitchCurrentTeam();
+        cam_position = Camera.main.transform.position;
 
         currentTeam.ResetUnitMoveState();
         UpdateTeamDisplay();
