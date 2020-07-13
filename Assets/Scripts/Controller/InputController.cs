@@ -38,13 +38,9 @@ public class InputController : MonoBehaviour
         }
         else
         {
-
-            if (Input.GetAxis("Mouse Y") > 0 || Input.GetAxis("Mouse X") > 0)
+            if (mouseMoveEvent != null)
             {
-                if (mouseMoveEvent != null)
-                {
-                    mouseMoveEvent(this, new InfoEventArgs<Vector3>(Input.mousePosition));
-                }
+                mouseMoveEvent(this, new InfoEventArgs<Vector3>(Input.mousePosition));
             }
         }
 
