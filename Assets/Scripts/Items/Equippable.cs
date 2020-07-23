@@ -3,13 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 public class Equippable : MonoBehaviour 
 {
-  #region Fields
   public EquipSlots defaultSlots;
   public EquipSlots secondarySlots;
   public EquipSlots slots;
   bool _isEquipped;
-  #endregion
-  #region Public
   public void OnEquip ()
   {
     if (_isEquipped)
@@ -28,5 +25,5 @@ public class Equippable : MonoBehaviour
     for (int i = 0; i < features.Length; ++i)
       features[i].Deactivate();
   }
-  #endregion
+
 }

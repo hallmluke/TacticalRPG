@@ -48,7 +48,6 @@ public class LayoutAnchorPanel : MonoBehaviour
     {
         get
         {
-            print(positionMap);
             if (positionMap.ContainsKey(name))
                 return positionMap[name];
             return null;

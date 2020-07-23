@@ -6,13 +6,20 @@ public class ConfirmAbilityTargetState : BattleState
     HashSet<Tile> tiles;
     AbilityArea aa;
     int index = 0;
+    AbilityEffectTarget[] targeters;
     public override void Enter()
     {
         base.Enter();
+
         aa = turn.ability.GetComponent<AbilityArea>();
         tiles = aa.GetTilesInArea(map, pos);
         map.SelectTiles(tiles);
         FindTargets();
+        if (turn.targets.Count > 0)
+        {
+            hitSuccessIndicator.Show();
+            SetTarget(0);
+        }
         RefreshPrimaryStatPanel(turn.actor.currentTile.coord);
         SetTarget(0);
     }
@@ -20,6 +27,7 @@ public class ConfirmAbilityTargetState : BattleState
     {
         base.Exit();
         map.DeSelectTiles(tiles);
+        hitSuccessIndicator.Hide();
         unitDisplayController.HidePrimary();
         unitDisplayController.HideSecondary();
     }
@@ -32,12 +40,8 @@ public class ConfirmAbilityTargetState : BattleState
     }
     protected override void OnFire(object sender, InfoEventArgs<int> e)
     {
-        print("Firin mah lazor");
-        print(e.info);
         if (e.info == 0)
         {
-            print("Turn.targets.Count");
-            print(turn.targets.Count);
             if (turn.targets.Count > 0)
             {
                 owner.ChangeState<PerformAbilityState>();
@@ -49,11 +53,9 @@ public class ConfirmAbilityTargetState : BattleState
     void FindTargets()
     {
         turn.targets = new List<Tile>();
-        AbilityEffectTarget[] targeters = turn.ability.GetComponentsInChildren<AbilityEffectTarget>();
+        targeters = turn.ability.GetComponentsInChildren<AbilityEffectTarget>();
         foreach (Tile tile in tiles)
         {
-            print("Is target?");
-            print(IsTarget(tile, targeters));
             if (IsTarget(tile, targeters))
             {
                 turn.targets.Add(tile);
@@ -73,10 +75,38 @@ public class ConfirmAbilityTargetState : BattleState
     {
         index = target;
         if (index < 0)
+        {
             index = turn.targets.Count - 1;
+        }
         if (index >= turn.targets.Count)
+        {
             index = 0;
+        }
         if (turn.targets.Count > 0)
+        {
             RefreshSecondaryStatPanel(turn.targets[index].coord);
+            UpdateHitSuccessIndicator();
+        }
+
     }
+
+    void UpdateHitSuccessIndicator()
+    {
+        int chance = 0;
+        int amount = 0;
+        Tile target = turn.targets[index];
+        for (int i = 0; i < targeters.Length; ++i)
+        {
+            if (targeters[i].IsTarget(target))
+            {
+                HitRate hitRate = targeters[i].GetComponent<HitRate>();
+                chance = hitRate.Calculate(target);
+                BaseAbilityEffect effect = targeters[i].GetComponent<BaseAbilityEffect>();
+                amount = effect.Predict(target);
+                break;
+            }
+        }
+        hitSuccessIndicator.SetStats(chance, amount);
+    }
+
 }

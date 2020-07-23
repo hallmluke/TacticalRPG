@@ -6,8 +6,6 @@ using UnityEngine.UI;
 public class UnitDisplay : MonoBehaviour
 {
     public LayoutAnchorPanel panel;
-    public Sprite allyBackground;
-    public Sprite enemyBackground;
     public Image background;
     public Image avatar;
     public Text nameLabel;
@@ -16,8 +14,16 @@ public class UnitDisplay : MonoBehaviour
     public Text lvLabel;
     public void Display (GameObject obj) {
     // Temp until I add a component to determine unit alliances
-    background.sprite = UnityEngine.Random.value > 0.5f? enemyBackground : allyBackground;
-    // avatar.sprite = null; Need a component which provides this data
+    Unit unit = obj.GetComponent<Unit>();
+    if(unit == null) {
+      print("unit null");
+    }
+    if(unit.team == null) {
+      print("no team");
+    }
+
+    background.sprite = obj.GetComponent<Unit>().team.unitDisplayBackground;
+    // avatar.sprite = null; TODO Need a component which provides this data
     nameLabel.text = obj.name;
     Stats stats = obj.GetComponent<Stats>();
     if (stats)

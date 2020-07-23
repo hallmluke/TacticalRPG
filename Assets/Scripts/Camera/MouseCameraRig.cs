@@ -12,7 +12,13 @@ public class MouseCameraRig : MonoBehaviour
 
     public bool lockToPos;
 
+    public Transform cursorPosition;
     public Transform lockPosition;
+    public Transform pitch;
+    public Quaternion targetPitchRotation;
+
+    public float tiltSensitivity = 20f;
+    public float smooth = 5f;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +31,14 @@ public class MouseCameraRig : MonoBehaviour
 
     void moveCamMouse()
     {
+        float y = Input.GetAxisRaw("Horizontal2") * tiltSensitivity;
+
+        if(y != 0) {
+            targetPitchRotation = Quaternion.Euler(pitch.localEulerAngles.x, pitch.localEulerAngles.y + y, pitch.localEulerAngles.z);
+        }
+
+        pitch.rotation = Quaternion.Lerp(pitch.rotation, targetPitchRotation,  Time.deltaTime * smooth);
+
         if (!lockToPos)
         {
             var mouse_x = Input.mousePosition.x;

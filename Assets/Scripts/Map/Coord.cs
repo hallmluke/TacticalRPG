@@ -1,9 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 [System.Serializable]
-public struct Coord
+public struct Coord : IEquatable<Coord>
 {
     public int x;
     public int y;
@@ -54,5 +55,10 @@ public struct Coord
     public override string ToString ()
     {
         return string.Format ("({0},{1})", x, y);
+    }
+
+    public static implicit operator Vector2(Coord c)
+    {
+        return new Vector2(c.x, c.y);
     }
 }

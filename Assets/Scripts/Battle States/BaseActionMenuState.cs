@@ -9,14 +9,18 @@ public abstract class BaseActionMenuState : BattleState
     {
         base.Enter();
         SelectTile(turn.actor.currentTile.coord);
-        mouseCameraRig.lockToPos = true;
+        if(mouseCameraRig != null) {
+            mouseCameraRig.lockToPos = true;
+        }
         LoadMenu();
     }
     public override void Exit()
     {
         base.Exit();
         actionMenuController.Hide();
-        mouseCameraRig.lockToPos = false;
+        if(mouseCameraRig != null) {
+            mouseCameraRig.lockToPos = false;
+        }
     }
     protected override void OnFire(object sender, InfoEventArgs<int> e)
     {

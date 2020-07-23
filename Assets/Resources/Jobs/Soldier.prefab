@@ -45,14 +45,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jobName: Soldier
   description: Just an ordinary dude
-  baseStats: 050000000500000005000000050000000500000005000000050000000700000005000000
+  baseStats: 0a0000000a000000060000000a0000000a0000000a000000050000000600000005000000
   growStats:
   - 5
   - 5
   - 5
   - 5
   - 5
-  - 5
-  - 5
-  - 5
-  - 5
+  - 0
+  - 0
+  - 0
+  - 0

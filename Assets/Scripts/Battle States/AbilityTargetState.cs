@@ -47,7 +47,6 @@ public class AbilityTargetState : BattleState
         {
             if (ar.directionOriented || tiles.Contains(map.GetTileFromCoord(pos)))
             {
-                print("to confirm ability target state");
                 owner.ChangeState<ConfirmAbilityTargetState>();
             }
         }
