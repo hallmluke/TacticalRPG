@@ -36,7 +36,7 @@ public class Map : MonoBehaviour
       if(validCoord(coord)) {
         return tiles[coord];
       }
-      print("Invalid Coord in GetTileFromCoord method");
+
       return null;
     }
     public bool validCoord(Coord coord) {

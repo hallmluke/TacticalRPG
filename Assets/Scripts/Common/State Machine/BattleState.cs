@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public abstract class BattleState : State
 {
     protected BattleManager owner;
-   // public CameraRig cameraRig { get { return owner.cameraRig; } }
+    // public CameraRig cameraRig { get { return owner.cameraRig; } }
     public MouseCameraRig mouseCameraRig { get { return owner.mouseCameraRig; } }
     public Map map { get { return owner.map; } }
     public MapData mapData { get { return owner.mapData; } }
@@ -13,8 +13,11 @@ public abstract class BattleState : State
     public Coord pos { get { return owner.pos; } set { owner.pos = value; } }
     public ActionMenuController actionMenuController { get { return owner.actionMenuController; } }
     public UnitDisplayController unitDisplayController { get { return owner.unitDisplayController; } }
+    public HitSuccessIndicator hitSuccessIndicator { get { return owner.hitSuccessIndicator; } }
     public Turn turn { get { return owner.turn; } }
     public List<Unit> units { get { return owner.units; } }
+    public Team playerTeam { get { return owner.playerTeam; }}
+    public Team enemyTeam { get { return owner.enemyTeam; }}
 
 
     protected virtual void Awake()
@@ -74,7 +77,6 @@ public abstract class BattleState : State
 
         if (Physics.Raycast(ray, out hit))
         {
-            print("hit something?");
             targetTile = hit.transform.GetComponent<Tile>();
 
             if (targetTile == null && hit.transform.GetComponent<Unit>() != null)
@@ -83,11 +85,6 @@ public abstract class BattleState : State
                 targetTile = hit.transform.GetComponent<Unit>().currentTile;
 
             }
-        }
-
-        if (targetTile != null)
-        {
-            print(targetTile.coord);
         }
 
         SelectTile(targetTile);
@@ -114,6 +111,15 @@ public abstract class BattleState : State
             unitDisplayController.ShowSecondary(target.gameObject);
         else
             unitDisplayController.HideSecondary();
+    }
+
+    protected virtual bool DidPlayerWin()
+    {
+        return owner.GetComponent<BaseVictoryCondition>().Victor == playerTeam;
+    }
+    protected virtual bool IsBattleOver()
+    {
+        return owner.GetComponent<BaseVictoryCondition>().Victor != null;
     }
 
 }

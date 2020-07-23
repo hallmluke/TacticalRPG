@@ -23,6 +23,21 @@ public static class DirectionsExtensions
             return Directions.South;
         return Directions.West;
     }
+
+    public static Coord GetNormal(this Directions dir)
+    {
+        switch (dir)
+        {
+            case Directions.North:
+                return new Coord(0, 1);
+            case Directions.East:
+                return new Coord(1, 0);
+            case Directions.South:
+                return new Coord(0, -1);
+            default: // Directions.West:
+                return new Coord(-1, 0);
+        }
+    }
     public static Vector3 ToEuler(this Directions d)
     {
         return new Vector3(0, (int)d * 90, 0);

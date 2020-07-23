@@ -5,7 +5,9 @@ using UnityEngine;
 
 public class InputController : MonoBehaviour
 {
-    bool gamepadControls;
+    public bool gamepadControls;
+    public float mouseThrottleCap = .2f;
+    float mouseThrottle = 0;
     Repeater _hor = new Repeater("Horizontal");
     Repeater _ver = new Repeater("Vertical");
     public static event EventHandler<InfoEventArgs<Coord>> moveEvent;
@@ -38,9 +40,14 @@ public class InputController : MonoBehaviour
         }
         else
         {
+            mouseThrottle += Time.deltaTime;
+            // TODO: profile with mouse throttle and without
             if (mouseMoveEvent != null)
             {
-                mouseMoveEvent(this, new InfoEventArgs<Vector3>(Input.mousePosition));
+                if(mouseThrottle >= mouseThrottleCap) {
+                    mouseThrottle = 0;
+                    mouseMoveEvent(this, new InfoEventArgs<Vector3>(Input.mousePosition));
+                }
             }
         }
 
@@ -48,10 +55,8 @@ public class InputController : MonoBehaviour
         {
             if (Input.GetButtonUp(_buttons[i]))
             {
-                print("Is fireEvent null?");
                 if (fireEvent != null)
                 {
-                    print("Fire event");
                     fireEvent(this, new InfoEventArgs<int>(i));
                 }
             }

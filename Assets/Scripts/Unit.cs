@@ -17,25 +17,23 @@ public class Unit : MonoBehaviour
 
     public float moveSpeed = 3f;
 
-    Renderer unitRenderer;
-    public Material startingMaterial;
-
-    Material waitMaterial;
+    public Animator anim;
 
 
 
     
     void Awake() {
         map = FindObjectOfType<Map>();
+        anim = GetComponent<Animator>();
        // movement = gameObject.AddComponent<Movement>();
         // TODO: Add back in teams
        // team.unitsInTeam.Add(this);
 
-        unitRenderer = transform.GetComponent<Renderer>();
+        /*unitRenderer = transform.GetComponent<Renderer>();
         startingMaterial = unitRenderer.material;
         waitMaterial = new Material(unitRenderer.material);
         float percentDarker = .70f;
-        waitMaterial.color = new Color(waitMaterial.color.r * percentDarker, waitMaterial.color.g * percentDarker, waitMaterial.color.b * percentDarker);
+        waitMaterial.color = new Color(waitMaterial.color.r * percentDarker, waitMaterial.color.g * percentDarker, waitMaterial.color.b * percentDarker);*/
     }
     // Start is called before the first frame update
     void Start()
@@ -56,7 +54,7 @@ public class Unit : MonoBehaviour
       target.OccupyTile(this);
   }
     public void SetWorldPositionFromMapPosition() {
-        Vector3 worldPosition = currentTile.center + Vector3.up * currentTile.height * Tile.heightToWidth;
+        Vector3 worldPosition = currentTile.center;
         transform.position = worldPosition;
         transform.localEulerAngles = dir.ToEuler();
     }
