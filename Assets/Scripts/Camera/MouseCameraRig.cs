@@ -17,6 +17,9 @@ public class MouseCameraRig : MonoBehaviour
     public Transform pitch;
     public Quaternion targetPitchRotation;
 
+    public Vector3 targetPosition;
+    public Camera camera;
+
     public float tiltSensitivity = 20f;
     public float smooth = 5f;
 
@@ -25,8 +28,9 @@ public class MouseCameraRig : MonoBehaviour
     {
         max_x = Screen.width;
         max_y = Screen.height;
-        camera_speed = 0.05f;  // TODO: Get this value from user config
+        camera_speed = 0.1f;  // TODO: Get this value from user config
         lockCameraSpeed = 2;
+        targetPosition = transform.position;
     }
 
     void moveCamMouse()
@@ -45,25 +49,26 @@ public class MouseCameraRig : MonoBehaviour
             var mouse_y = Input.mousePosition.y;
             if (mouse_x > max_x - border_size && mouse_x < max_x)
             {
-                transform.position = transform.position + new Vector3(camera_speed, 0, 0);
+                targetPosition += new Vector3(camera.transform.right.x * camera_speed, 0, camera.transform.right.z * camera_speed);
             }
             else if (mouse_x < 0 + border_size && mouse_x > 0)
             {
-                transform.position = transform.position - new Vector3(camera_speed, 0, 0);
+                targetPosition -= new Vector3(camera.transform.right.x * camera_speed, 0, camera.transform.right.z * camera_speed);
             }
             if (mouse_y > max_y - border_size && mouse_y < max_y)
             {
-                transform.position = transform.position + new Vector3(0, 0, camera_speed);
+                targetPosition += new Vector3(camera.transform.forward.x * camera_speed, 0, camera.transform.forward.z * camera_speed);
             }
             else if (mouse_y < 0 + border_size && mouse_y > 0)
             {
-                transform.position = transform.position - new Vector3(0, 0, camera_speed);
+                targetPosition -= new Vector3(camera.transform.forward.x * camera_speed, 0, camera.transform.forward.z * camera_speed);
             }
+        } else {
+            targetPosition = lockPosition.position;
         }
-        else
-        {
-            transform.position = Vector3.Lerp(transform.position, lockPosition.position, lockCameraSpeed * Time.deltaTime);
-        }
+        
+        transform.position = Vector3.Lerp(transform.position, targetPosition, lockCameraSpeed * Time.deltaTime);
+
     }
 
     // Moves the camera back to where it was at the start of the turn

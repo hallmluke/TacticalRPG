@@ -151,6 +151,7 @@ public abstract class Movement : MonoBehaviour
             t.startValue = new Vector3(t.startValue.x, 360f, t.startValue.z);
         else if (Mathf.Approximately(t.startValue.y, 270) && Mathf.Approximately(t.endValue.y, 0))
             t.endValue = new Vector3(t.startValue.x, 360f, t.startValue.z);
+
         unit.dir = dir;
   
         while (t != null)

@@ -19,7 +19,7 @@ public class MapGenerator : MonoBehaviour
     [SerializeField] int length;
     [SerializeField] int height;
     [SerializeField] Coord pos;
-    [SerializeField] MapData mapData;
+    public MapData mapData;
 
     /*Transform marker
     {
@@ -34,7 +34,7 @@ public class MapGenerator : MonoBehaviour
         }
     }*/
     Transform _marker;
-    Dictionary<Coord, Tile> tiles;// = new Dictionary<Coord, Tile>();
+    [SerializeField] CoordTileDictionary tiles;// = new Dictionary<Coord, Tile>();
 
     void Awake() {
         GenerateMap();
@@ -42,7 +42,7 @@ public class MapGenerator : MonoBehaviour
 
     public void GenerateMap() {
 
-        tiles = new Dictionary<Coord, Tile>();
+        tiles = new CoordTileDictionary();
 
         //tileMap = new Transform[mapSize.x, mapSize.y];
         // Create map holder object
@@ -158,14 +158,14 @@ Tile GetOrCreate (Coord p)
   
   return t;
 }
-void ElevateSingle (Coord p)
+public void ElevateSingle (Coord p)
 {
   Tile t = GetOrCreate(p);
   if (t.height < height)
     t.Elevate();
 }
 
-void LowerSingle (Coord p)
+public void LowerSingle (Coord p)
 {
   if (!tiles.ContainsKey(p))
     return;

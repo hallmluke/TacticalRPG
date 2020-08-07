@@ -18,6 +18,7 @@ public class Map : MonoBehaviour
     public void Load (MapData data) {
       for (int i=0; i < data.tiles.Count; ++i) {
         GameObject instance = Instantiate(tilePrefab) as GameObject;
+        instance.transform.parent = transform;
         Tile t = instance.GetComponent<Tile>();
         t.Load(data.tiles[i]);
         tiles.Add(t.coord, t);
@@ -92,13 +93,13 @@ public class Map : MonoBehaviour
     public void SelectTiles (HashSet<Tile> tiles)
     {
       foreach (Tile tile in tiles) {
-        tile.GetComponent<Renderer>().material.SetColor("_Color", selectedTileColor);
+        tile.GetComponent<Renderer>().material = tile.movable;
       }
     }
     public void DeSelectTiles (HashSet<Tile> tiles)
     {
       foreach (Tile tile in tiles) {
-        tile.GetComponent<Renderer>().material.SetColor("_Color", defaultTileColor);
+        tile.GetComponent<Renderer>().material = tile.unselected;
       }
     }
 

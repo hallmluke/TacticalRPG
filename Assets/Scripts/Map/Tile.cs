@@ -9,7 +9,7 @@ public class Tile : MonoBehaviour
     public Coord coord;
     public int height;
 
-    public Vector3 center { get { return new Vector3(coord.x, height * heightToWidth, coord.y); }}
+    public Vector3 center { get { return new Vector3(coord.x, height, coord.y); }}
 
 /*
     public Material defaultMaterial;
@@ -22,6 +22,10 @@ public class Tile : MonoBehaviour
     Unit unitOnTile;
     public Tile parent;
     public int distance;
+
+    public Material unselected;
+    public Material movable;
+    public Material target;
  
 
     void Start() {
@@ -68,8 +72,10 @@ public class Tile : MonoBehaviour
     }
 
     public void Match() {
-        transform.localPosition = new Vector3(coord.x, height * heightToWidth / 2f, coord.y);
-        transform.localScale = new Vector3(1, height * heightToWidth, 1);
+        transform.rotation = Quaternion.Euler(90f, 0, 0); // ???
+        transform.position = new Vector3(coord.x, height, coord.y);
+        transform.localScale = new Vector3(1, 1, 1);
+        
     }
 
     public void Elevate() {
