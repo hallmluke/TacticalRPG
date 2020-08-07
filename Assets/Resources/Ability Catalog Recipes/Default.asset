@@ -1,21 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ee7a66d0ec214af88453fa414720f23, type: 3}
-  m_Name: Default
-  m_EditorClassIdentifier: 
-  categories:
-  - name: White Magic
-    entries:
-    - Cure
-  - name: Creepy Shit
-    entries:
-    - Drain
+version https://git-lfs.github.com/spec/v1
+oid sha256:b69e8950cd7de412fc32ac5e39a9fcc35438c26dfb93cd888586f4f00fdb6392
+size 503

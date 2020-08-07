@@ -1,19 +1,3 @@
-%YAML 1.1
-%TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a558f204cdd9a4ca987906176741a62b, type: 3}
-  m_Name: Enemy1
-  m_EditorClassIdentifier: 
-  model: Skeleton
-  job: Soldier
-  attack: Attack
-  abilityCatalog: Default
-  locomotion: 0
+version https://git-lfs.github.com/spec/v1
+oid sha256:5059f663afa2a09c3ada5407fa6f0b360084ecda92acb4515b198dab893ca0ad
+size 487
